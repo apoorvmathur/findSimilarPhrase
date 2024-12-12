@@ -11,3 +11,18 @@ Use the make command `make start-server` to start a FastAPI server locally.
 #### Running in Docker [Some issues with image size]
 Use command `make start-docker` to start containers using compose.
 
+## Sample request
+
+```bash
+curl --location '127.0.0.1:8000/phrases?phrase=what%20is%20the%20most%20profitable%20company%20in%20india' \
+--data ''
+```
+
+Response:
+
+```json
+{
+    "phrase": "most profitable insurance company India",
+    "distance": 0.45201218609561494
+}
+```

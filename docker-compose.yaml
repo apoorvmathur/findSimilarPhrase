@@ -1,0 +1,9 @@
+services:
+  similar_phrases:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build
+    container_name: similar_phrases
+    ports:
+      - "8080:8080"

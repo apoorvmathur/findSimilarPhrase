@@ -22,4 +22,4 @@ start-server: ensure-venv
 
 start-jupyter: ensure-venv
 	@echo "Starting Jupyter"
-	$(ACTIVATE_ENV) && jupyter lab --NotebookApp.token='' --NotebookApp.password=''
+	$(ACTIVATE_ENV) && jupyter lab --NotebookApp.token='token' --NotebookApp.password='token'

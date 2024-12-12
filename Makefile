@@ -12,10 +12,14 @@ $(VIRTUAL_ENV):
 	@echo "Create virtualenv"
 	virtualenv $(VIRTUAL_ENV) -p `which python3.12`
 
-build-venv: venv requirements.txt ##@main >> update requirements.txt inside the virtual environment
+ensure-venv: venv requirements.txt ##@main >> update requirements.txt inside the virtual environment
 	@echo "Updating packages"
 	$(ACTIVATE_ENV) && python3 -m pip install -r requirements.txt
 
-start-server:
+start-server: ensure-venv
 	@echo "Starting server locally"
 	$(ACTIVATE_ENV) && uvicorn main:app --reload
+
+start-jupyter: ensure-venv
+	@echo "Starting Jupyter"
+	$(ACTIVATE_ENV) && jupyter lab --NotebookApp.token='' --NotebookApp.password=''

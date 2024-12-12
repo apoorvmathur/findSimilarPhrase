@@ -23,3 +23,11 @@ start-server: ensure-venv
 start-jupyter: ensure-venv
 	@echo "Starting Jupyter"
 	$(ACTIVATE_ENV) && jupyter lab --NotebookApp.token='token' --NotebookApp.password='token'
+
+start-docker:
+	@echo "Starting containers"
+	docker compose up -d
+
+stop-docker:
+	@echo "Stopping containers"
+	docker compose down
